@@ -10,12 +10,13 @@
 <body>
 
     <div id='root'> 
-        <input type='text' id='input' v-model='message'>
+        <input type='text' id='input' v-model='newName'>
+        <input type='submit' value='Update name' @click = 'updateName' >
         <div class='top'>
         <p> Hello <br/>
             My Name is: </p>
-            <div class='mid'> 
-                    {{message}}
+            <div class='mid'>
+                 {{message}}
             </div>
         </div>  
         
@@ -30,7 +31,14 @@
         new Vue({
             el: '#root',
             data: {
+                newName:'',
                 message: ''
+            },
+            methods: {
+                updateName() {
+                    this.message = this.newName,
+                    this.newName = ''
+                }
             }
         })
 
