@@ -10,8 +10,10 @@
 <body>
 
     <div id='root'> 
+        <form>
         <input type='text' id='input' v-model='newName'>
         <input type='submit' value='Update name' @click = 'updateName' >
+        </form>
         <div class='top'>
         <p> Hello <br/>
             My Name is: </p>
@@ -38,6 +40,7 @@
                 updateName() {
                     this.message = this.newName,
                     this.newName = ''
+                    event.preventDefault()
                 }
             }
         })
